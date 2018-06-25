@@ -46,6 +46,9 @@ Enter the credentials:
 - `GITHUB_USER`: The username of the GitHub user that will post the status. We suggest you create a dummy github user for this purpose. This user *must* have permission to write to the repo in order for it to post a status. 
 - `GITHUB_PW`: The password for this GitHub user.
 
+Or a Github Token:
+- `GITHUB_TOKEN`: The GitHub Token of the account with write permissions on the repository.
+
 Click "deploy app". The app will deploy.
 
 When completed, you can click "Launch App" and it will take you to an information screen which lists all of the label settings.
@@ -97,6 +100,8 @@ You can also set `REQUIRED_LABELS_ALL`, `REQUIRED_LABELS_ANY`, or `BANNED_LABELS
 $ export REQUIRED_LABELS_ALL=required-label-name,other-required-label-name
 $ export GITHUB_USER={username}
 $ export GITHUB_PW={password}
+### OR a GitHub Token
+$ export GITHUB_TOKEN={token}
 ```
 
 - Run the app
@@ -129,4 +134,5 @@ In the `Collaborators & teams` settings page, make sure the user who you set up 
 
 ```sh
 $ python -m unittest -v
+
 ```

@@ -23,12 +23,14 @@ def generate_config():
         config['banned'] = conf.get('Labels', 'banned-labels')
         config['github_user'] = conf.get('GitHub', 'user')
         config['github_pw'] = conf.get('GitHub', 'password')
+        config['github_token'] = conf.get('GitHub', 'token')
     except NoSectionError:
         config['required_any'] = os.environ.get('REQUIRED_LABELS_ANY', None)
         config['required_all'] = os.environ.get('REQUIRED_LABELS_ALL', None)
         config['banned'] = os.environ.get('BANNED_LABELS', None)
         config['github_user'] = os.environ.get('GITHUB_USER', None)
         config['github_pw'] = os.environ.get('GITHUB_PW', None)
+        config['github_token'] = os.environ.get('GITHUB_TOKEN', None)
 
     for label in ['required_any', 'required_all', 'banned']:
         config[label] = config[label].split(',') if config[label] else None

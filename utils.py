@@ -1,11 +1,15 @@
 import json
 from requests import Session
 
-from config import get_credentials, APP_NAME
+from config import get_credentials, APP_NAME, CONFIG
 
 
 session = Session()
-session.auth = get_credentials()
+if 'github_token' in CONFIG and CONFIG['github_token']:
+    session.headers.update(
+        {'Authorization': 'token {}'.format(CONFIG['github_token'])})
+else:
+    session.auth = get_credentials()
 session.headers.update({"User-Agent": APP_NAME})
 
 
